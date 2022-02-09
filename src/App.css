@@ -1,1 +1,33 @@
 /* Other rules */
+
+.container {
+  margin: 0 200px;
+}
+
+/*Header*/
+
+.logo {
+  width: 150px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/*Home page*/
+
+.banner {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+}
+
+.products-bloc {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aquamarine;
+  border: black solid 2px;
+}
