@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 
 import Banner from "../assets/banner.jpg";
 
-import Header from "../components/Header";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -31,23 +29,48 @@ const Home = () => {
   ) : (
     <body>
       <div className="container">
-        <Header />
         <main>
           <img src={Banner} className="banner" alt="banner" />
           <div className="products-bloc">
             {data.offers.map((offer, index) => {
               return (
-                <div className="product">
-                  {offer.product_pictures.map((picture, index) => {
-                    return <img src={picture.secure_url[1]} />;
-                  })}
-                </div>
+                <Link to={`/offer/${offer._id}`}>
+                  <div className="product">
+                    <div className="avatar">
+                      <img
+                        src={offer.owner.account.avatar.secure_url}
+                        className="avatar-picture"
+                      />
+                      <span>{offer.owner.account.username}</span>
+                    </div>
+                    <img
+                      className="product-illustration"
+                      key={index}
+                      src={offer.product_image.secure_url}
+                    />
+                    <div className="informations-product">
+                      <div className="informations-product-firstline">
+                        <span>{offer.product_price} €</span>
+                        {/* <FontAwesomeIcon icon="fal fa-info-circle" /> */}
+                      </div>
+                      <div className="informations-product-secondline">
+                        {offer.product_details.map((elem, index) => {
+                          return (
+                            <>
+                              <span>{elem.TAILLE && <p>{elem.TAILLE}</p>}</span>
+                              <span>{elem.MARQUE}</span>
+                            </>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               );
             })}
           </div>
         </main>
       </div>
-      <Link to={"/offer"}>Go to product with Link</Link>
     </body>
   );
 };

@@ -1,9 +1,16 @@
 import Vinted from "../assets/Vinted-logo.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
-    <header>
-      <img src={Vinted} className="logo" alt="logo" />
+    <header className="header">
+      <img
+        src={Vinted}
+        className="logo"
+        alt="logo"
+        onClick={() => navigate("/")}
+      />
       <form>
         <input
           type="search"
