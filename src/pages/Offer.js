@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -29,46 +28,48 @@ const Offer = () => {
   return isLoading ? (
     <div>En cours de rechargement...</div>
   ) : (
-    <div className="container-Offer">
-      <div className="main-Offer">
-        <div className="results-product">
-          <img
-            src={data.product_image.secure_url}
-            className="selected-product-illustration"
-          />
-          <div className="details-result">
-            <p className="price-product">{data.product_price} €</p>
-            <div className="details-result-product">
-              {data.product_details.map((info, index) => {
-                const keys = Object.keys(info);
-                return (
-                  <div className="list-details-product">
-                    <p>{keys[0]}</p>
-                    <span>{info[keys[0]]}</span>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="divider"></div>
-            <div>
-              <p className="name-product">{data.product_name}</p>
-              <br />
-              <p>{data.product_description}</p>
-            </div>
-            <div>
-              <img
-                className="avatar-picture-offer"
-                src={data.owner.account.avatar.secure_url}
-              />
-              <span>{data.owner.account.username}</span>
-            </div>
-            <div>
-              <button className="buy-button">Acheter</button>
+    <body>
+      <div className="container-Offer">
+        <div className="main-Offer">
+          <div className="results-product">
+            <img
+              src={data.product_image.secure_url}
+              className="selected-product-illustration"
+            />
+            <div className="details-result">
+              <p className="price-product">{data.product_price} €</p>
+              <div className="details-result-product">
+                {data.product_details.map((info, index) => {
+                  const keys = Object.keys(info);
+                  return (
+                    <div className="list-details-product">
+                      <p>{keys[0]}</p>
+                      <span>{info[keys[0]]}</span>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="divider"></div>
+              <div>
+                <p className="name-product">{data.product_name}</p>
+                <br />
+                <p>{data.product_description}</p>
+              </div>
+              <div>
+                <img
+                  className="avatar-picture-offer"
+                  src={data.owner.account.avatar.secure_url}
+                />
+                <span>{data.owner.account.username}</span>
+              </div>
+              <div>
+                <button className="buy-button">Acheter</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </body>
   );
 };
 

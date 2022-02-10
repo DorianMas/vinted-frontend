@@ -17,7 +17,7 @@ const Header = () => {
           placeholder="Recherche des articles"
           className="search-bar"
         />
-        <button>S'inscrire</button>
+        <button onClick={() => navigate("/signup")}>S'inscrire</button>
         <button>Se connecter</button>
         <button>Vends tes articles</button>
       </form>
