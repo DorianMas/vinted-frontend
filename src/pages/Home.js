@@ -7,24 +7,42 @@ import { useState, useEffect } from "react";
 
 import BannerEffet from "../assets/tear.42d6cec6.svg";
 
-const Home = () => {
+const Home = (props) => {
   /*Création d'un état pour récupérer les données Json*/
+
+  const { searchTerm, toggle, setSort, sort } = props;
+
   const [data, setData] = useState();
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
-      );
-      console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
+      if (toggle === false) {
+        setSort("price-asc");
+      } else {
+        setSort("price-desc");
+      }
+
+      if (searchTerm) {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchTerm}&sort=${sort}`
+        );
+        console.log("console.log de response.data==> ", response.data);
+        setData(response.data);
+        setIsLoading(false);
+      } else {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}`
+        );
+        console.log("console.log de response.data==> ", response.data);
+        setData(response.data);
+        setIsLoading(false);
+      }
     };
     fetchData();
     console.log("Effect executed");
-  }, []);
+  }, [searchTerm, sort, setSort, toggle]);
 
   return isLoading ? (
     <div>En cours de rechargement...</div>

@@ -1,13 +1,19 @@
 import Vinted from "../assets/Vinted-logo.svg";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate, useLocation } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Switch } from "react-switch";
 
 const Header = (props) => {
-  const { token, tokenUser } = props;
+  const { token, tokenUser, setSearchTerm, toggle, setToggle, sort, setSort } =
+    props;
 
-  // [deconnected, setDeconnected] =useState(true)
+  const handleSwitch = (checked) => {
+    setToggle(checked);
+  };
 
+  const location = useLocation();
   const navigate = useNavigate();
+
   return (
     <header className="header">
       <div className="logo-container">
@@ -20,13 +26,65 @@ const Header = (props) => {
       </div>
       <form>
         <div className="searchbar-container">
-          <FontAwesomeIcon icon="fas fa-search" className="search-input-icon" />
           <input
             type="search"
             placeholder="Recherche des articles"
             className="searchbar"
+            onChange={(event) => {
+              const value = event.target.value;
+              setSearchTerm(value);
+            }}
           />
         </div>
+        {/* <>
+          {location.pathname === "/" && (
+            <label>
+              <span>Trier par prix : </span>
+              <br />
+              <Switch onChange={handleSwitch} checked={toggle} />
+            </label>
+          )}
+        </> */}
+        {/* <Switch
+          //     onChange={handleSwitch}
+          //     checked={toggle}
+          //     // className="switch-button"
+          //     onColor="#40aeb7"
+          //     offColor="#40aeb7"
+          //     height={20}
+          //     width={42}
+          // uncheckedIcon={false}
+          // checkedIcon={false}
+          // checkedHandleIcon={
+          //   <div
+          //   // style={{
+          //   //   display: "flex",
+          //   //   justifyContent: "center",
+          //   //   alignItems: "center",
+          //   //   height: "100%",
+          //   //   fontSize: 15,
+          //   //   backgroundColor: "red",
+          //   // }}
+          //   >
+          //     ⇣
+          //   </div>
+          // }
+          // uncheckedHandleIcon={
+          //   <div
+          //   // style={{
+          //   //   display: "flex",
+          //   //   justifyContent: "center",
+          //   //   alignItems: "center",
+          //   //   height: "100%",
+          //   //   fontSize: 15,
+          //   //   backgroundColor: "black",
+          //   // }}
+          //   >
+          //     ⇡
+          //   </div>
+          // }
+          // />
+          // </label> */}
       </form>
       <div>
         {token ? (
