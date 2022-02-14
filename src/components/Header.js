@@ -1,14 +1,21 @@
 import Vinted from "../assets/Vinted-logo.svg";
 import { useNavigate, useLocation } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Switch } from "react-switch";
+import Switch from "react-switch";
+import { useState } from "react";
 
 const Header = (props) => {
-  const { token, tokenUser, setSearchTerm, toggle, setToggle, sort, setSort } =
-    props;
+  const {
+    token,
+    tokenUser,
+    setSearchTerm,
+    checked,
+    setChecked,
+    sort,
+    setSort,
+  } = props;
 
-  const handleSwitch = (checked) => {
-    setToggle(checked);
+  const handleChange = () => {
+    setChecked(true);
   };
 
   const location = useLocation();
@@ -24,7 +31,7 @@ const Header = (props) => {
           onClick={() => navigate("/")}
         />
       </div>
-      <form>
+      <div>
         <div className="searchbar-container">
           <input
             type="search"
@@ -36,16 +43,68 @@ const Header = (props) => {
             }}
           />
         </div>
-        {/* <>
+        <div>
           {location.pathname === "/" && (
-            <label>
+            <div div className="price-sort-button">
               <span>Trier par prix : </span>
-              <br />
-              <Switch onChange={handleSwitch} checked={toggle} />
-            </label>
+              <Switch
+                onChange={handleChange}
+                checked={checked}
+                className="react-switch"
+                offColor="#09b1ba"
+                onColor="#09b1ba"
+                offHandleColor="#def"
+                uncheckedIcon={
+                  <div
+                    style={{
+                      color: "pink",
+                      paddingTop: 2,
+                      paddingLeft: 6,
+                      fontSize: 20,
+                    }}
+                  ></div>
+                }
+                checkedIcon={
+                  <div
+                    style={{
+                      color: "pink",
+                      paddingTop: 2,
+                      paddingLeft: 6,
+                      fontSize: 20,
+                    }}
+                  ></div>
+                }
+                checkedHandleIcon={
+                  <div
+                    style={{
+                      color: "black",
+                      paddingTop: 1,
+                      paddingLeft: 10,
+                      fontSize: 20,
+                    }}
+                  >
+                    ⇣
+                  </div>
+                }
+                uncheckedHandleIcon={
+                  <div
+                    style={{
+                      color: "black",
+                      paddingTop: 1,
+                      paddingLeft: 9,
+                      fontSize: 20,
+                    }}
+                  >
+                    ⇡
+                  </div>
+                }
+              />
+            </div>
           )}
-        </> */}
-        {/* <Switch
+        </div>
+      </div>
+
+      {/* <Switch
           //     onChange={handleSwitch}
           //     checked={toggle}
           //     // className="switch-button"
@@ -85,7 +144,7 @@ const Header = (props) => {
           // }
           // />
           // </label> */}
-      </form>
+
       <div>
         {token ? (
           <button className="signout-button" onClick={() => tokenUser(null)}>
@@ -106,7 +165,9 @@ const Header = (props) => {
         )}
         <div className="sell-button-container"></div>
       </div>
-      <button className="sell-button">Vends tes articles</button>
+      <button className="sell-button" onClick={() => navigate("/publish")}>
+        Vends tes articles
+      </button>
     </header>
   );
 };

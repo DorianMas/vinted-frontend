@@ -8,6 +8,7 @@ import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 import NotFound from "./pages/NotFound";
 
 import Cookies from "js-cookie";
@@ -28,11 +29,15 @@ function App() {
     setToken(token);
   };
 
+  /*Création d'un état pour récupérer les données Json*/
+  const [data, setData] = useState();
+
   /* Déclaration d'un UseState pour la barre de recherche*/
   const [searchTerm, setSearchTerm] = useState("");
 
   /* Déclaration des deux UseState pour afficher les résultats par prix (croissant/décroissant) */
-  const [toggle, setToggle] = useState(false);
+  const [checked, setChecked] = useState(false);
+
   const [sort, setSort] = useState("price-asc");
 
   /*Création d'un état pour intégrer une pagination des produits*/
@@ -46,8 +51,8 @@ function App() {
         tokenUser={tokenUser}
         token={token}
         setSearchTerm={setSearchTerm}
-        togle={toggle}
-        setToggle={setToggle}
+        checked={checked}
+        setChecked={setChecked}
         sort={sort}
         setSort={setSort}
       />
@@ -56,10 +61,13 @@ function App() {
           path="/"
           element={
             <Home
+              data={data}
+              setData={setData}
               searchTerm={searchTerm}
               sort={sort}
               setSort={setSort}
-              toggle={toggle}
+              checked={checked}
+              setChecked={setChecked}
               page={page}
               setPage={setPage}
               limit={limit}
@@ -69,6 +77,8 @@ function App() {
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup tokenUser={tokenUser} />} />
         <Route path="/login" element={<Login tokenUser={tokenUser} />} />
+        <Route path="/publish" element={<Publish token={token} />} />
+
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </Router>

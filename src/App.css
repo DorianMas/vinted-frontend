@@ -66,10 +66,12 @@ a {
   color: #bbb;
 }
 
-.switch-button {
-  background-color: #2cb1ba;
-  width: 60px;
-  height: 34px;
+.price-sort-button {
+  margin: 10px 0;
+  font-family: "MaisonNeue";
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .signin-button,
@@ -189,7 +191,18 @@ main {
 
 .pagination-container {
   margin: 20px 200px;
-  background-color: #09b1ba;
+}
+
+.pagination-button {
+  background-color: #2cb1ba;
+  color: white;
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "MaisonNeue";
+  font-size: 12px;
+  margin: 10px;
 }
 
 /* Page Offer */
@@ -359,6 +372,119 @@ input[type="checkbox"] {
   color: #2cb1ba;
   font-size: 12px;
   margin-top: 30px;
+}
+
+/*Publish page*/
+
+.publish-page {
+  background-color: #6666;
+}
+
+.publish-bloc {
+  margin: 30px 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "MaisonNeue";
+}
+
+.publish-bloc h2 {
+  margin: 30px 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.publish-section {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.publish-add-container {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.publish-add-file-button {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.publish-add-file-button + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #2cb1ba;
+  border: #09b1ba 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.publish-add-file-button + label span {
+  font-size: 3rem;
+}
+
+.publish-add-file-button + label:hover {
+  cursor: pointer;
+}
+
+.publish-title-container {
+  height: 8rem;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  flex-direction: column;
+}
+
+.publish-title-container div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-description-container {
+  height: 8rem;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  flex-direction: column;
+}
+
+.publish-description-container div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-price-container {
+  height: 8rem;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  flex-direction: column;
+}
+
+.publish-price-container div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-button-container {
+  display: flex;
+  justify-content: end;
+  margin: 20px 0;
+}
+
+.publish-button {
+  width: 15%;
 }
 
 /* Error 404 page */

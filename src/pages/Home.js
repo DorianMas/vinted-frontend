@@ -8,16 +8,24 @@ import { useState, useEffect } from "react";
 import BannerEffet from "../assets/tear.42d6cec6.svg";
 
 const Home = (props) => {
-  const { searchTerm, toggle, setSort, sort, page, setPage, limit } = props;
+  const {
+    data,
+    setData,
+    searchTerm,
+    checked,
+    setChecked,
+    setSort,
+    sort,
+    page,
+    setPage,
+    limit,
+  } = props;
 
   const [isLoading, setIsLoading] = useState(true);
 
-  /*Création d'un état pour récupérer les données Json*/
-  const [data, setData] = useState();
-
   useEffect(() => {
     const fetchData = async () => {
-      if (toggle === false) {
+      if (checked === false) {
         setSort("price-asc");
       } else {
         setSort("price-desc");
@@ -41,7 +49,7 @@ const Home = (props) => {
     };
     fetchData();
     console.log("Effect executed");
-  }, [searchTerm, sort, setSort, toggle, page]);
+  }, [searchTerm, sort, setChecked, checked, page, setSort]);
 
   return isLoading ? (
     <div>En cours de rechargement...</div>
@@ -63,10 +71,14 @@ const Home = (props) => {
               <Link to={`/offer/${offer._id}`}>
                 <div className="product">
                   <div className="avatar">
-                    <img
-                      src={offer.owner.account.avatar.secure_url}
-                      className="avatar-picture"
-                    />
+                    {offer.owner.account.avatar ? (
+                      <img
+                        src={offer.owner.account.avatar.secure_url}
+                        className="avatar-picture"
+                      />
+                    ) : (
+                      <span></span>
+                    )}
                     <span>{offer.owner.account.username}</span>
                   </div>
                   <img
@@ -98,18 +110,38 @@ const Home = (props) => {
         <div className="pagination-container">
           {page === 1 ? (
             <>
-              <button>Page précédente</button>
-              <button onClick={() => setPage(page + 1)}>Page suivante</button>
+              <button className="pagination-button">Page précédente</button>
+              <button
+                className="pagination-button"
+                onClick={() => setPage(page + 1)}
+              >
+                Page suivante
+              </button>
             </>
           ) : page === 6 ? (
             <>
-              <button onClick={() => setPage(page - 1)}>Page précédente</button>
-              <button>Page suivante</button>
+              <button
+                className="pagination-button"
+                onClick={() => setPage(page - 1)}
+              >
+                Page précédente
+              </button>
+              <button className="pagination-button">Page suivante</button>
             </>
           ) : (
             <>
-              <button onClick={() => setPage(page - 1)}>Page précédente</button>{" "}
-              <button onClick={() => setPage(page + 1)}>Page suivante</button>
+              <button
+                className="pagination-button"
+                onClick={() => setPage(page - 1)}
+              >
+                Page précédente
+              </button>{" "}
+              <button
+                className="pagination-button"
+                onClick={() => setPage(page + 1)}
+              >
+                Page suivante
+              </button>
             </>
           )}
         </div>
