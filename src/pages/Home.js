@@ -96,21 +96,22 @@ const Home = (props) => {
           })}
         </div>
         <div className="pagination-container">
-          {/* {
-              page === 1 ? (
-              <>
-                <button>Page précédente</button>
-                <button onClick={() => setPage(page + 1)}>Page suivante</button>
-              </>
-              ) : page === 6 ? (
-              <>
-                <button onClick={() => setPage(page - 1)}>
-                  Page précédente
-                </button>
-                <button>Page suivante</button>
-              
-            </>)
-          } */}
+          {page === 1 ? (
+            <>
+              <button>Page précédente</button>
+              <button onClick={() => setPage(page + 1)}>Page suivante</button>
+            </>
+          ) : page === 6 ? (
+            <>
+              <button onClick={() => setPage(page - 1)}>Page précédente</button>
+              <button>Page suivante</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => setPage(page - 1)}>Page précédente</button>{" "}
+              <button onClick={() => setPage(page + 1)}>Page suivante</button>
+            </>
+          )}
         </div>
       </main>
     </div>
