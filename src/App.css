@@ -109,6 +109,13 @@ a {
 
 /*Home page*/
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .banner {
   object-fit: cover;
   width: 100%;
@@ -133,7 +140,6 @@ a {
 
 .products-bloc {
   margin: 0 150px;
-
   font-family: "MaisonNeue";
   display: flex;
   flex-wrap: wrap;
@@ -179,6 +185,11 @@ a {
   display: flex;
   flex-direction: column;
   font-family: "MaisonNeue";
+}
+
+.pagination-container {
+  margin: 20px 200px;
+  background-color: #09b1ba;
 }
 
 /* Page Offer */

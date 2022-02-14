@@ -35,6 +35,11 @@ function App() {
   const [toggle, setToggle] = useState(false);
   const [sort, setSort] = useState("price-asc");
 
+  /*Création d'un état pour intégrer une pagination des produits*/
+  const [page, setPage] = useState(1);
+
+  const limit = 6;
+
   return (
     <Router>
       <Header
@@ -55,6 +60,9 @@ function App() {
               sort={sort}
               setSort={setSort}
               toggle={toggle}
+              page={page}
+              setPage={setPage}
+              limit={limit}
             />
           }
         />

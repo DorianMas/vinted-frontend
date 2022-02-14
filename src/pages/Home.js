@@ -8,13 +8,12 @@ import { useState, useEffect } from "react";
 import BannerEffet from "../assets/tear.42d6cec6.svg";
 
 const Home = (props) => {
-  /*Création d'un état pour récupérer les données Json*/
-
-  const { searchTerm, toggle, setSort, sort } = props;
-
-  const [data, setData] = useState();
+  const { searchTerm, toggle, setSort, sort, page, setPage, limit } = props;
 
   const [isLoading, setIsLoading] = useState(true);
+
+  /*Création d'un état pour récupérer les données Json*/
+  const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +32,7 @@ const Home = (props) => {
         setIsLoading(false);
       } else {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}&limit=${limit}&page=${page}`
         );
         console.log("console.log de response.data==> ", response.data);
         setData(response.data);
@@ -42,7 +41,7 @@ const Home = (props) => {
     };
     fetchData();
     console.log("Effect executed");
-  }, [searchTerm, sort, setSort, toggle]);
+  }, [searchTerm, sort, setSort, toggle, page]);
 
   return isLoading ? (
     <div>En cours de rechargement...</div>
@@ -95,6 +94,23 @@ const Home = (props) => {
               </Link>
             );
           })}
+        </div>
+        <div className="pagination-container">
+          {/* {
+              page === 1 ? (
+              <>
+                <button>Page précédente</button>
+                <button onClick={() => setPage(page + 1)}>Page suivante</button>
+              </>
+              ) : page === 6 ? (
+              <>
+                <button onClick={() => setPage(page - 1)}>
+                  Page précédente
+                </button>
+                <button>Page suivante</button>
+              
+            </>)
+          } */}
         </div>
       </main>
     </div>
