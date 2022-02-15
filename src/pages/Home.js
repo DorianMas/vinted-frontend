@@ -23,11 +23,12 @@ const Home = (props) => {
     setValues,
   } = props;
 
-  let counterPage = data.count;
-  console.log("Nombre de produits =>", counterPage);
-  let totalPages = counterPage / limit;
-  let roundTotalPages = Math.ceil(totalPages);
-  console.log("Nombre de pages à l'arrondi =>", roundTotalPages);
+  console.log(data);
+
+  let counterPage;
+  // console.log("Nombre de produits =>", counterPage);
+  let roundTotalPages;
+  // console.log("Nombre de pages à l'arrondi =>", roundTotalPages);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -52,6 +53,9 @@ const Home = (props) => {
         );
         console.log("console.log de response.data==> ", response.data);
         setData(response.data);
+        counterPage = response.data.count;
+        roundTotalPages = Math.ceil(counterPage / limit);
+        console.log(roundTotalPages);
         setIsLoading(false);
       }
     };
@@ -66,9 +70,29 @@ const Home = (props) => {
     setSort,
     values,
     setValues,
-    setData,
     limit,
   ]);
+  // console.log(data);
+  // console.log(limit);
+  // console.log(data.count);
+
+  const handlePreviousPage = () => {
+    if (page === 1) {
+      <span></span>;
+    } else {
+      setPage(page - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (page >= roundTotalPages) {
+      <span></span>;
+    } else {
+      setPage(page + 1);
+    }
+
+    console.log(handleNextPage);
+  };
 
   return isLoading ? (
     <div>En cours de rechargement...</div>
@@ -127,10 +151,17 @@ const Home = (props) => {
           })}
         </div>
         <div className="pagination-container">
-          {page === 1 ? (
+          <button className="pagination-button" onClick={handlePreviousPage}>
+            Page précédente
+          </button>
+          <span>{page}</span>
+          <button className="pagination-button" onClick={handleNextPage}>
+            Page suivante
+          </button>
+          {/* {page === 1 ? (
             <>
               <button className="pagination-button">Page précédente</button>
-              {/* <span>{page}</span> */}
+              <span>{page}</span>
               <button
                 className="pagination-button"
                 onClick={() => setPage(page + 1)}
@@ -146,8 +177,7 @@ const Home = (props) => {
               >
                 Page précédente
               </button>
-              {/* <span>{page}</span> */}
-              <button className="pagination-button">Page suivante</button>
+              <span>{page}</span>
             </>
           ) : (
             <>
@@ -157,7 +187,7 @@ const Home = (props) => {
               >
                 Page précédente
               </button>
-              {/* <span>{page}</span> */}
+              <span>{page}</span>
               <button
                 className="pagination-button"
                 onClick={() => setPage(page + 1)}
@@ -165,7 +195,7 @@ const Home = (props) => {
                 Page suivante
               </button>
             </>
-          )}
+          )} */}
         </div>
       </main>
     </div>

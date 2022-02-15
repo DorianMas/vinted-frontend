@@ -80,9 +80,10 @@ const SortComponent = (props) => {
                 padding: "4px",
                 borderRadius: "4px",
                 backgroundColor: "#09b1ba",
+                textAlign: "center",
               }}
             >
-              {values[index].toFixed(1)} <span>€</span>
+              {values[index]} <span>€</span>
             </div>
           </div>
         )}
