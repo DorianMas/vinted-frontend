@@ -1,7 +1,5 @@
 import { Range, getTrackBackground } from "react-range";
 
-import { useState } from "react";
-
 const SortComponent = (props) => {
   const { values, setValues } = props;
 

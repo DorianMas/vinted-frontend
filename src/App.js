@@ -28,8 +28,6 @@ function App() {
     setToken(token);
   };
 
-  const [isLoading, setIsLoading] = useState(true);
-
   /*Création d'un état pour récupérer les données Json*/
   const [data, setData] = useState();
 
@@ -43,7 +41,7 @@ function App() {
 
   /*Création d'un état pour intégrer une pagination des produits*/
   const [page, setPage] = useState(1);
-  const limit = 6;
+  const limit = 8;
 
   /*Création d'un état pour le tri min/max */
   const [values, setValues] = useState([20, 100]);

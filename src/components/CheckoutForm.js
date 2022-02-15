@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import { useParams } from "react-router-dom";
 
 import axios from "axios";
 
@@ -10,7 +9,7 @@ const CheckoutForm = (props) => {
 
   const [completed, setCompleted] = useState(false);
 
-  const { token, userToken, title, price } = props;
+  const { title, price } = props;
 
   const handleSubmit = async (event) => {
     event.preventDefault();

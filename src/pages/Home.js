@@ -46,6 +46,8 @@ const Home = (props) => {
         );
         console.log("console.log de response.data==> ", response.data);
         setData(response.data);
+        counterPage = response.data.count;
+        roundTotalPages = Math.ceil(counterPage / limit);
         setIsLoading(false);
       } else {
         const response = await axios.get(
@@ -76,6 +78,8 @@ const Home = (props) => {
   // console.log(limit);
   // console.log(data.count);
 
+  console.log("Nombre de page ==>", page);
+
   const handlePreviousPage = () => {
     if (page === 1) {
       <span></span>;
@@ -85,13 +89,13 @@ const Home = (props) => {
   };
 
   const handleNextPage = () => {
-    if (page >= roundTotalPages) {
+    if (page > roundTotalPages) {
       <span></span>;
     } else {
       setPage(page + 1);
     }
-
-    console.log(handleNextPage);
+    console.log("Nombre de page ==>", page);
+    console.log("Page maximum ==>", roundTotalPages);
   };
 
   return isLoading ? (
@@ -151,51 +155,22 @@ const Home = (props) => {
           })}
         </div>
         <div className="pagination-container">
-          <button className="pagination-button" onClick={handlePreviousPage}>
-            Page précédente
-          </button>
-          <span>{page}</span>
-          <button className="pagination-button" onClick={handleNextPage}>
-            Page suivante
-          </button>
-          {/* {page === 1 ? (
-            <>
-              <button className="pagination-button">Page précédente</button>
-              <span>{page}</span>
-              <button
-                className="pagination-button"
-                onClick={() => setPage(page + 1)}
-              >
-                Page suivante
-              </button>
-            </>
-          ) : page === roundTotalPages ? (
-            <>
-              <button
-                className="pagination-button"
-                onClick={() => setPage(page - 1)}
-              >
-                Page précédente
-              </button>
-              <span>{page}</span>
-            </>
+          {searchTerm ? (
+            <span></span>
           ) : (
             <>
               <button
                 className="pagination-button"
-                onClick={() => setPage(page - 1)}
+                onClick={handlePreviousPage}
               >
                 Page précédente
               </button>
               <span>{page}</span>
-              <button
-                className="pagination-button"
-                onClick={() => setPage(page + 1)}
-              >
+              <button className="pagination-button" onClick={handleNextPage}>
                 Page suivante
               </button>
             </>
-          )} */}
+          )}
         </div>
       </main>
     </div>

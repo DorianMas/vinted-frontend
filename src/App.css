@@ -33,7 +33,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 200px;
+  margin: 10px 150px;
   background-color: white;
 }
 
@@ -149,12 +149,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
 
 .product {
   flex: 1;
   font-family: "MaisonNeue";
-  width: 235px;
+  width: 250px;
   cursor: pointer;
   margin-top: 20px;
 }
