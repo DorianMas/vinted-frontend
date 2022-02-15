@@ -56,10 +56,15 @@ const Offer = () => {
                 <p>{data.product_description}</p>
               </div>
               <div>
-                <img
-                  className="avatar-picture-offer"
-                  src={data.owner.account.avatar.secure_url}
-                />
+                {data.owner.account.avatar !== undefined ? (
+                  <img
+                    className="avatar-picture-offer"
+                    src={data.owner.account.avatar.secure_url}
+                  />
+                ) : (
+                  <span></span>
+                )}
+
                 <span>{data.owner.account.username}</span>
               </div>
               <div>
@@ -72,7 +77,6 @@ const Offer = () => {
                 >
                   <button className="buy-button">Acheter</button>
                 </Link>
-                ;
               </div>
             </div>
           </div>

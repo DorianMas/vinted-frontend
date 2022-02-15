@@ -10,7 +10,7 @@ const CheckoutForm = (props) => {
 
   const [completed, setCompleted] = useState(false);
 
-  const { token, userToken } = props;
+  const { token, userToken, title, price } = props;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +21,7 @@ const CheckoutForm = (props) => {
     // Demande de création d'un token via l'API Stripe
     // On envoie les données bancaires dans la requête
     const stripeResponse = await stripe.createToken(cardElement, {
-      id: userToken,
+      name: "L'id de l'acheteur",
     });
     console.log("Stripe Response ===> ", stripeResponse);
 
@@ -35,8 +35,8 @@ const CheckoutForm = (props) => {
       {
         token: stripeToken,
         // le token que vous avez reçu de l'API Stripe
-        title: "Le Titre de l'annonce",
-        amount: 10,
+        title: title,
+        amount: price,
         // le prix indiquée dans l'annonce
       }
     );
@@ -51,7 +51,9 @@ const CheckoutForm = (props) => {
     <>
       {!completed ? (
         <form onSubmit={handleSubmit}>
-          <CardElement />
+          <div className="card-payment">
+            <CardElement />
+          </div>
           <button type="submit">Valider</button>
         </form>
       ) : (

@@ -622,6 +622,93 @@ input[type="checkbox"] {
   font-size: 12px;
 }
 
+/*Payment page*/
+
+.payment-page {
+  background-color: rgb(228, 227, 227);
+  width: 100%;
+  height: 1000px;
+  padding: 40px;
+}
+
+.payment-container {
+  width: 600px;
+  height: auto;
+  margin: auto;
+  padding: 36px 20px;
+  background-color: white;
+  font-family: "MaisonNeue";
+}
+
+.resume-order {
+  border-bottom: 1px solid #ebedee;
+  padding-bottom: 30px;
+}
+
+.resume-order h3 {
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: #999;
+}
+
+.resume-order-commande,
+.resume-order-frais-protection,
+.resume-order-frais-port {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.total-payment {
+  border-bottom: 1px solid #ebedee;
+  padding: 40px 0 30px 0px;
+}
+
+.total-payment-price {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.total-payment-resume {
+  text-align: justify;
+  line-height: normal;
+}
+
+.total-payment-resume span {
+  font-weight: bold;
+}
+
+.card-payment-container {
+  padding: 20px 0;
+}
+
+.card-payment {
+  padding: 8px 5px;
+  border: 1px solid #ebedee;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%);
+}
+
+.card-payment-container button {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  height: 44px;
+  padding: 0 14px;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  background: #00c06d;
+  border-color: #00c06d;
+}
+
 /* Error 404 page */
 .error404 {
   margin-top: 200px;

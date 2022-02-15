@@ -23,6 +23,12 @@ const Home = (props) => {
     setValues,
   } = props;
 
+  let counterPage = data.count;
+  console.log("Nombre de produits =>", counterPage);
+  let totalPages = counterPage / limit;
+  let roundTotalPages = Math.ceil(totalPages);
+  console.log("Nombre de pages à l'arrondi =>", roundTotalPages);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -124,6 +130,7 @@ const Home = (props) => {
           {page === 1 ? (
             <>
               <button className="pagination-button">Page précédente</button>
+              {/* <span>{page}</span> */}
               <button
                 className="pagination-button"
                 onClick={() => setPage(page + 1)}
@@ -131,7 +138,7 @@ const Home = (props) => {
                 Page suivante
               </button>
             </>
-          ) : page === 6 ? (
+          ) : page === roundTotalPages ? (
             <>
               <button
                 className="pagination-button"
@@ -139,6 +146,7 @@ const Home = (props) => {
               >
                 Page précédente
               </button>
+              {/* <span>{page}</span> */}
               <button className="pagination-button">Page suivante</button>
             </>
           ) : (
@@ -148,7 +156,8 @@ const Home = (props) => {
                 onClick={() => setPage(page - 1)}
               >
                 Page précédente
-              </button>{" "}
+              </button>
+              {/* <span>{page}</span> */}
               <button
                 className="pagination-button"
                 onClick={() => setPage(page + 1)}

@@ -28,6 +28,8 @@ function App() {
     setToken(token);
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+
   /*Création d'un état pour récupérer les données Json*/
   const [data, setData] = useState();
 
