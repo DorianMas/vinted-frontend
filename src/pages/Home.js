@@ -19,6 +19,8 @@ const Home = (props) => {
     page,
     setPage,
     limit,
+    values,
+    setValues,
   } = props;
 
   const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +42,7 @@ const Home = (props) => {
         setIsLoading(false);
       } else {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}&limit=${limit}&page=${page}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}&limit=${limit}&page=${page}&priceMin=${values[0]}&priceMax=${values[1]}`
         );
         console.log("console.log de response.data==> ", response.data);
         setData(response.data);
@@ -49,7 +51,18 @@ const Home = (props) => {
     };
     fetchData();
     console.log("Effect executed");
-  }, [searchTerm, sort, setChecked, checked, page, setSort]);
+  }, [
+    searchTerm,
+    sort,
+    setChecked,
+    checked,
+    page,
+    setSort,
+    values,
+    setValues,
+    setData,
+    limit,
+  ]);
 
   return isLoading ? (
     <div>En cours de rechargement...</div>

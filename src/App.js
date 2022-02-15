@@ -10,10 +10,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
 import NotFound from "./pages/NotFound";
+import Payment from "./pages/Payment";
 
 import Cookies from "js-cookie";
-
-/*Import des composants*/
 
 function App() {
   /*Ajouts des cookies*/
@@ -42,8 +41,10 @@ function App() {
 
   /*Création d'un état pour intégrer une pagination des produits*/
   const [page, setPage] = useState(1);
-
   const limit = 6;
+
+  /*Création d'un état pour le tri min/max */
+  const [values, setValues] = useState([20, 100]);
 
   return (
     <Router>
@@ -55,6 +56,8 @@ function App() {
         setChecked={setChecked}
         sort={sort}
         setSort={setSort}
+        values={values}
+        setValues={setValues}
       />
       <Routes>
         <Route
@@ -71,13 +74,19 @@ function App() {
               page={page}
               setPage={setPage}
               limit={limit}
+              values={values}
             />
           }
         />
-        <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup tokenUser={tokenUser} />} />
         <Route path="/login" element={<Login tokenUser={tokenUser} />} />
         <Route path="/publish" element={<Publish token={token} />} />
+        <Route path="/offer/:id" element={<Offer />} />
+
+        <Route
+          path="/payment"
+          element={<Payment tokenUser={tokenUser} token={token} />}
+        />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>

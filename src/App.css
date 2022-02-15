@@ -59,15 +59,18 @@ a {
   font-size: 16px;
 }
 
-.search-input-icon {
+/* .search-input-icon {
+  display: inline;
   position: absolute;
-  left: 7px;
-  top: 12px;
-  color: #bbb;
-}
+  left: 26.5%;
+  top: 19px;
+  color: rgb(187, 187, 187);
+  width: 20px;
+  z-index: 1;
+} */
 
 .price-sort-button {
-  margin: 10px 0;
+  margin: 20px 15px 0 0;
   font-family: "MaisonNeue";
   display: flex;
   align-items: center;
@@ -377,7 +380,7 @@ input[type="checkbox"] {
 /*Publish page*/
 
 .publish-page {
-  background-color: #6666;
+  background-color: rgb(235, 237, 238);
 }
 
 .publish-bloc {
@@ -402,11 +405,22 @@ input[type="checkbox"] {
 }
 
 .publish-add-container {
-  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
+  box-shadow: 0 0 2px grey;
+  padding: 24px;
+}
+
+.publish-add-inline-container {
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .publish-add-file-button {
@@ -425,9 +439,12 @@ input[type="checkbox"] {
   border: #09b1ba 1px solid;
   padding: 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.publish-add-file-button + label span {
+.publish-add-file-button + label span:first-child {
   font-size: 3rem;
 }
 
@@ -436,26 +453,113 @@ input[type="checkbox"] {
 }
 
 .publish-title-container {
-  height: 8rem;
+  height: 15rem;
+  background-color: #fff;
+  margin: 20px 0;
+  box-shadow: 0 0 2px grey;
   padding: 20px;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  flex-direction: column;
 }
 
-.publish-title-container div {
+.publish-title-div {
+  height: 4rem;
+  border-bottom: 1px solid #ebedee;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.publish-title-div span {
+  font-weight: 400;
+  margin-bottom: 15px;
+  vertical-align: baseline;
+}
+
+.publish-title-div input {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  font-family: "MaisonNeue";
+  font-size: 16px;
+  color: black;
+  font-weight: 400;
+  margin-bottom: 15px;
+  vertical-align: baseline;
+  outline: none;
+}
+
+.publish-description-div {
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.publish-description-div span {
+  padding-bottom: 25px;
+}
+.publish-description-div textarea {
+  width: 50%;
+  resize: none;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  outline: none;
+  color: #000;
+  font-family: "MaisonNeue";
+  font-size: 16px;
+  padding-bottom: 25px;
 }
 
 .publish-description-container {
-  height: 8rem;
+  height: 25rem;
+  background-color: #fff;
+  margin: 20px 0;
+  box-shadow: 0 0 2px grey;
   padding: 20px;
   display: flex;
-  justify-content: center;
-  background-color: white;
   flex-direction: column;
+}
+
+.publish-description-brand,
+.publish-description-size,
+.publish-description-color,
+.publish-description-condition,
+.publish-description-city {
+  flex: 1;
+  border-bottom: 1px solid #ebedee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.publish-description-city {
+  border-bottom: none;
+}
+
+.publish-description-brand span,
+.publish-description-size span,
+.publish-description-color span,
+.publish-description-condition span,
+.publish-description-city span {
+  font-weight: 400;
+  margin-bottom: 15px;
+  vertical-align: baseline;
+}
+
+.publish-description-brand input,
+.publish-description-size input,
+.publish-description-color input,
+.publish-description-condition input,
+.publish-description-city input {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  font-family: "MaisonNeue";
+  font-size: 16px;
+  color: black;
+  font-weight: 400;
+  margin-bottom: 15px;
+  vertical-align: baseline;
+  outline: none;
 }
 
 .publish-description-container div {
@@ -464,27 +568,58 @@ input[type="checkbox"] {
 }
 
 .publish-price-container {
-  height: 8rem;
+  height: 10rem;
+  background-color: #fff;
+  margin: 20px 0;
+  box-shadow: 0 0 2px grey;
   padding: 20px;
   display: flex;
-  justify-content: center;
-  background-color: white;
   flex-direction: column;
 }
 
-.publish-price-container div {
+.publish-price-div {
   display: flex;
   justify-content: space-between;
+  padding: 24px;
+}
+
+.publish-price-secondcolumn {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-price-secondcolumn input {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: #000;
+  font-family: "MaisonNeue";
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.publish-price-checkbox {
+  font-family: "MaisonNeue";
+  font-size: 16px;
+  display: block;
+  gap: 10px;
 }
 
 .publish-button-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 20px 0;
 }
 
 .publish-button {
-  width: 15%;
+  background-color: #2cb1ba;
+  color: white;
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "MaisonNeue";
+  font-size: 12px;
 }
 
 /* Error 404 page */

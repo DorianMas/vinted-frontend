@@ -1,7 +1,9 @@
 import Vinted from "../assets/Vinted-logo.svg";
 import { useNavigate, useLocation } from "react-router-dom";
 import Switch from "react-switch";
-import { useState } from "react";
+import Loupe from "../assets/loupe.svg";
+
+import SortComponent from "./SortComponent";
 
 const Header = (props) => {
   const {
@@ -12,10 +14,12 @@ const Header = (props) => {
     setChecked,
     sort,
     setSort,
+    values,
+    setValues,
   } = props;
 
   const handleChange = () => {
-    setChecked(true);
+    setChecked(!checked);
   };
 
   const location = useLocation();
@@ -33,6 +37,7 @@ const Header = (props) => {
       </div>
       <div>
         <div className="searchbar-container">
+          {/* <img src={Loupe} className="search-input-icon" /> */}
           <input
             type="search"
             placeholder="Recherche des articles"
@@ -46,59 +51,63 @@ const Header = (props) => {
         <div>
           {location.pathname === "/" && (
             <div div className="price-sort-button">
-              <span>Trier par prix : </span>
-              <Switch
-                onChange={handleChange}
-                checked={checked}
-                className="react-switch"
-                offColor="#09b1ba"
-                onColor="#09b1ba"
-                offHandleColor="#def"
-                uncheckedIcon={
-                  <div
-                    style={{
-                      color: "pink",
-                      paddingTop: 2,
-                      paddingLeft: 6,
-                      fontSize: 20,
-                    }}
-                  ></div>
-                }
-                checkedIcon={
-                  <div
-                    style={{
-                      color: "pink",
-                      paddingTop: 2,
-                      paddingLeft: 6,
-                      fontSize: 20,
-                    }}
-                  ></div>
-                }
-                checkedHandleIcon={
-                  <div
-                    style={{
-                      color: "black",
-                      paddingTop: 1,
-                      paddingLeft: 10,
-                      fontSize: 20,
-                    }}
-                  >
-                    ⇣
-                  </div>
-                }
-                uncheckedHandleIcon={
-                  <div
-                    style={{
-                      color: "black",
-                      paddingTop: 1,
-                      paddingLeft: 9,
-                      fontSize: 20,
-                    }}
-                  >
-                    ⇡
-                  </div>
-                }
-              />
+              <>
+                <span>Trier par prix : </span>
+                <Switch
+                  onChange={handleChange}
+                  checked={checked}
+                  className="react-switch"
+                  offColor="#09b1ba"
+                  onColor="#09b1ba"
+                  offHandleColor="#def"
+                  uncheckedIcon={
+                    <div
+                      style={{
+                        color: "pnk",
+                        paddingTop: 2,
+                        paddingLeft: 6,
+                        fontSize: 20,
+                      }}
+                    ></div>
+                  }
+                  checkedIcon={
+                    <div
+                      style={{
+                        paddingTop: 2,
+                        paddingLeft: 6,
+                        fontSize: 20,
+                      }}
+                    ></div>
+                  }
+                  checkedHandleIcon={
+                    <div
+                      style={{
+                        color: "black",
+                        paddingTop: 3,
+                        paddingLeft: 10,
+                        fontSize: 20,
+                      }}
+                    >
+                      ⇣
+                    </div>
+                  }
+                  uncheckedHandleIcon={
+                    <div
+                      style={{
+                        color: "black",
+                        paddingTop: 2,
+                        paddingLeft: 9,
+                        fontSize: 20,
+                      }}
+                    >
+                      ⇡
+                    </div>
+                  }
+                />
+              </>
+              <>
+                <SortComponent values={values} setValues={setValues} />
+              </>
             </div>
           )}
         </div>

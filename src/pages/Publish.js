@@ -58,19 +58,21 @@ const Publish = (props) => {
         <h2>Vends ton article</h2>
         <div className="publish-section">
           <div className="publish-add-container">
-            <input
-              type="file"
-              onChange={(event) => {
-                setFile(event.target.files[0]);
-              }}
-              className="publish-add-file-button"
-            />
-            <label for="file">
-              <span>+ </span> Ajoute une photo
-            </label>
+            <div className="publish-add-inline-container">
+              <input
+                type="file"
+                onChange={(event) => {
+                  setFile(event.target.files[0]);
+                }}
+                className="publish-add-file-button"
+              />
+              <label for="file">
+                <span>+ </span> <span>Ajoute une photo</span>
+              </label>
+            </div>
           </div>
           <div className="publish-title-container">
-            <div>
+            <div className="publish-title-div">
               <span>Titre</span>
               <input
                 type="text"
@@ -80,10 +82,10 @@ const Publish = (props) => {
                 }}
               />
             </div>
-            <div>
+            <div className="publish-description-div">
               <span>Décris ton article</span>
-              <input
-                type="text"
+
+              <textarea
                 placeholder="ex: porté quelquefois, taille correctement"
                 onChange={(event) => {
                   setDescription(event.target.value);
@@ -92,7 +94,7 @@ const Publish = (props) => {
             </div>
           </div>
           <div className="publish-description-container">
-            <div>
+            <div className="publish-description-brand">
               <span>Marque</span>
               <input
                 type="text"
@@ -102,7 +104,7 @@ const Publish = (props) => {
                 }}
               />
             </div>
-            <div>
+            <div className="publish-description-size">
               <span>Taille</span>
               <input
                 type="text"
@@ -112,7 +114,7 @@ const Publish = (props) => {
                 }}
               />
             </div>
-            <div>
+            <div className="publish-description-color">
               <span>Couleur</span>
               <input
                 type="text"
@@ -122,7 +124,7 @@ const Publish = (props) => {
                 }}
               />
             </div>
-            <div>
+            <div className="publish-description-condition">
               <span>Etat</span>
               <input
                 type="text"
@@ -132,7 +134,7 @@ const Publish = (props) => {
                 }}
               />
             </div>
-            <div>
+            <div className="publish-description-city">
               <span>Lieu</span>
               <input
                 type="text"
@@ -144,9 +146,9 @@ const Publish = (props) => {
             </div>
           </div>
           <div className="publish-price-container">
-            <div>
-              <div>
-                <span>Prix</span>
+            <div className="publish-price-div">
+              <span>Prix</span>
+              <div className="publish-price-secondcolumn">
                 <input
                   type="number"
                   placeholder="0,00 €"
@@ -154,10 +156,10 @@ const Publish = (props) => {
                     setPrice(event.target.value);
                   }}
                 />
-              </div>
-              <div>
-                <input type="checkbox" />
-                <span>Je suis intéresssé(e) par les échanges</span>
+                <div className="publish-price-checkbox">
+                  <input type="checkbox" />
+                  <span>Je suis intéresssé(e) par les échanges</span>
+                </div>
               </div>
             </div>
           </div>
