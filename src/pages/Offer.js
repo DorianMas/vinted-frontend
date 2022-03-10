@@ -10,21 +10,25 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
-  console.log(id);
+  console.log("id =>", id);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-      );
-      console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-    console.log("Effect executed");
-  }, [id]);
-  console.log(data);
+    try {
+      const fetchData = async () => {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        console.log("response.data =>", response.data);
+        setData(response.data);
+        setIsLoading(false);
+      };
+      fetchData();
+      console.log("Effect executed");
+    } catch (error) {
+      console.log(error);
+    }
+  }, [id, isLoading]);
+
   return isLoading ? (
     <div>En cours de rechargement...</div>
   ) : (

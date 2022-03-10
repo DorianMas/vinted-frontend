@@ -150,12 +150,13 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  flex: 4;
 }
 
 .product {
   flex: 1;
   font-family: "MaisonNeue";
-  width: 250px;
+  width: 350px;
   cursor: pointer;
   margin-top: 20px;
 }
