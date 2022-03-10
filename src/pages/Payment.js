@@ -5,7 +5,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 
-const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
+const stripePromise = loadStripe(
+  "pk_test_51KUWUJIkpSnYhQP37VpswUt8GxghBBwq8Cg1fyHbOQApI4H81eivhxWIt4yXHhCNzow6LGIErEwXBOAgjNxbEktj00ILyZKUpP"
+);
 
 const Payment = (props) => {
   const location = useLocation();
