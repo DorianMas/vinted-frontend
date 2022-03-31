@@ -56,8 +56,6 @@ const Login = (props) => {
   };
 
   return (
-    /*   Objectaccount: {username: 'patrick'}email: "patrick@mail.com"token: "9jtcTr9Ofq1jGUqP3utr0dyKq8bxdefZ9UWjpQmHIsAAt3mf85O0nFOjvRFgjBew"_id: "6205449c1b4120001801837d"[[Prototype]]: Object
-          iption.js:50 patrick patrick@mail.com patrick false */
     <div className="signup-container">
       <h2>Se connecter</h2>
       <span>{errorMessage}</span>

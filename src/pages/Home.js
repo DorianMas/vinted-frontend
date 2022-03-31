@@ -136,7 +136,6 @@ const Home = (props) => {
                   <div className="informations-product">
                     <div className="informations-product-price">
                       <span>{offer.product_price} €</span>
-                      {/* <FontAwesomeIcon icon="fal fa-info-circle" /> */}
                     </div>
                     <div className="informations-product-secondline">
                       {offer.product_details.map((elem, index) => {

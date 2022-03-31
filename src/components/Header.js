@@ -37,7 +37,6 @@ const Header = (props) => {
       </div>
       <div>
         <div className="searchbar-container">
-          {/* <img src={Loupe} className="search-input-icon" /> */}
           <input
             type="search"
             placeholder="Recherche des articles"
@@ -49,7 +48,7 @@ const Header = (props) => {
           />
         </div>
         <div>
-          {location.pathname === "/" && (
+          {location.pathname === "  /" && (
             <div div className="price-sort-button">
               <>
                 <span>Trier par prix : </span>
@@ -112,48 +111,6 @@ const Header = (props) => {
           )}
         </div>
       </div>
-
-      {/* <Switch
-          //     onChange={handleSwitch}
-          //     checked={toggle}
-          //     // className="switch-button"
-          //     onColor="#40aeb7"
-          //     offColor="#40aeb7"
-          //     height={20}
-          //     width={42}
-          // uncheckedIcon={false}
-          // checkedIcon={false}
-          // checkedHandleIcon={
-          //   <div
-          //   // style={{
-          //   //   display: "flex",
-          //   //   justifyContent: "center",
-          //   //   alignItems: "center",
-          //   //   height: "100%",
-          //   //   fontSize: 15,
-          //   //   backgroundColor: "red",
-          //   // }}
-          //   >
-          //     ⇣
-          //   </div>
-          // }
-          // uncheckedHandleIcon={
-          //   <div
-          //   // style={{
-          //   //   display: "flex",
-          //   //   justifyContent: "center",
-          //   //   alignItems: "center",
-          //   //   height: "100%",
-          //   //   fontSize: 15,
-          //   //   backgroundColor: "black",
-          //   // }}
-          //   >
-          //     ⇡
-          //   </div>
-          // }
-          // />
-          // </label> */}
-
       <div>
         {token ? (
           <button className="signout-button" onClick={() => tokenUser(null)}>
