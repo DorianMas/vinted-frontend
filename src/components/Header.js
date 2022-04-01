@@ -48,7 +48,7 @@ const Header = (props) => {
           />
         </div>
         <div>
-          {location.pathname === "  /" && (
+          {location.pathname === "/" && (
             <div div className="price-sort-button">
               <>
                 <span>Trier par prix : </span>
